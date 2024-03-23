@@ -78,7 +78,7 @@ public class EmployeeService {
         if (employee.isEmpty()) {
             throw new IllegalArgumentException(String.format("Employee with id = %d not found", employeeId));
         }
-        Type listType = new TypeToken<TaskDTO>() {}.getType();
+        Type listType = new TypeToken<Task>() {}.getType();
         Task task = modelMapper.map(newTask, listType);
         task.setEmployee(employee.get());
         taskRepository.save(task);
